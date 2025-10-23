@@ -16,29 +16,152 @@
       color: #fff;
       text-align: center;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.5s ease;
+      padding: 0 10px;
     }
 
-    h1 {
+    /* === Фото и анимация "Это я" === */
+    .photo-container {
+      position: relative;
+      display: inline-block;
+      overflow: visible;
       margin-bottom: 20px;
+    }
+
+    .photo {
+      width: 600px;
+      border-radius: 10px;
+      transition: transform 0.5s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-container:hover .photo {
+      transform: translateY(20px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Подпись и стрелка */
+    .label {
+      position: absolute;
+      top: -180px;
+      left: 40%;
+      transform: translateX(-50%) translateY(-20px);
+      text-align: center;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .photo-container:hover .label {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .label .text {
+      font-family: Arial, sans-serif;
+      font-size: 42px;
+      font-weight: bold;
+      color: #f3ff4d;
+      margin-bottom: 10px;
+    }
+
+    .label .arrow {
+      display: block;
+      margin: 0 auto;
+      width: 40px;
+      height: 100px;
+      opacity: 0;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .photo-container:hover .label .arrow {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* === Заголовок и параграф === */
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 10px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    h1:hover {
+      color: #ffd700;
+      transform: translateY(0) scale(1.05);
     }
 
     p {
       font-size: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease 0.2s;
+    }
+
+    /* === Мобильная адаптация === */
+    @media (max-width: 600px) {
+      .photo {
+        width: 100%;
+        height: auto;
+      }
+
+      .label {
+        top: -120px; /* Подвинем стрелку и текст ближе */
+      }
+
+      .label .text {
+        font-size: 28px;
+      }
+
+      .label .arrow {
+        width: 25px;
+        height: 80px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
     }
   </style>
-  <link rel="stylesheet" href="stylenextpage.css">
 </head>
-
 <body>
-    <img src="assets/images/myaso.PNG" alt="Фото">
+  <div class="photo-container">
+    <div class="label">
+      <div class="text">Это я</div>
+      <!-- Длинная SVG-стрелка -->
+      <svg class="arrow" viewBox="0 0 40 120" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="0" x2="20" y2="100" stroke="#f3ff4d" stroke-width="6" stroke-linecap="round"/>
+        <polygon points="10,100 30,100 20,120" fill="#f3ff4d"/>
+      </svg>
+    </div>
+    <img src="assets/images/myaso.PNG" alt="Фото" class="photo">
+  </div>
+
   <h1>Вот это интересно уже</h1>
   <p>Поздравляю себя! 🎉</p>
 
   <script>
     window.onload = () => {
       document.body.style.opacity = 1;
+
+      // Плавное появление h1 и p после загрузки
+      const h1 = document.querySelector('h1');
+      const p = document.querySelector('p');
+      setTimeout(() => {
+        h1.style.opacity = 1;
+        h1.style.transform = 'translateY(0)';
+      }, 200);
+      setTimeout(() => {
+        p.style.opacity = 1;
+        p.style.transform = 'translateY(0)';
+      }, 400);
     };
   </script>
 </body>
 </html>
+
