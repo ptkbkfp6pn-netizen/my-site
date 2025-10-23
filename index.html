@@ -90,5 +90,17 @@
       }, 300);
     });
   </script>
+<script>
+  const showPage = () => {
+    document.body.classList.add('loaded');
+  };
+
+  window.addEventListener('load', showPage);
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      showPage();
+    }
+  });
+</script>
 </body>
 </html>
