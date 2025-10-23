@@ -1,0 +1,69 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+  font-family: Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Фото */
+img {
+  width: 420px; /* Уменьши или увеличь под себя */
+  height: auto;
+  border-radius: 20px; /* Скругление углов */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 1.25); /* Лёгкая тень */
+  margin-bottom: 25px; /* Отступ от заголовка */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект при наведении */
+img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 20px;
+}
+
+/* Плавное появление */
+body.loaded {
+  opacity: 1;
+}
+
+/* 📱 Мобильная адаптация */
+@media (max-width: 600px) {
+  body {
+    padding: 0 10px;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  button {
+    width: 90%;
+    font-size: 1rem;
+    padding: 12px;
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Другая страница</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ты на другой странице!</h1>
+  <p>Эта кнопка слева привела тебя сюда 🎉</p>
+
+  <script>
+    window.onload = () => {
+      document.body.style.opacity = 1;
+    };
+  </script>
+</body>
+</html>

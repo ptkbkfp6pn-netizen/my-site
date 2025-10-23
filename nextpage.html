@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вторая страница</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="stylenextpage.css">
+</head>
+
+<body>
+    <img src="assets/images/myaso.PNG" alt="Фото">
+  <h1>Вот это интересно уже</h1>
+  <p>Поздравляю себя! 🎉</p>
+
+  <script>
+    window.onload = () => {
+      document.body.style.opacity = 1;
+    };
+  </script>
+</body>
+</html>

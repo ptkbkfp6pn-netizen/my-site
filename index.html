@@ -6,10 +6,57 @@
   
   <title>Мой первый сайт</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    img {
+      margin-top: 20px;
+      width: 500px;
+      max-width: 90%;
+    }
+
+    header {
+      margin: 20px 0;
+    }
+
+    main {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      max-width: 700px;
+      margin: 40px auto;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      color: #fff;
+      background: #ff6b6b;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      background: #ff8787;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+  </style>
 </head>
 
 <body>
-  <img src="assets/images/photo.jpg" alt="Фото" width="500">
+  <img src="assets/images/photo.jpg" alt="Фото">
 
   <header>
     <h1>Салам Алейкум, братья!</h1>
@@ -17,9 +64,31 @@
   </header>
 
   <main>
-    <button id="myButton">Нажми</button>
+    <button id="btnLeft" class="btn">Левая кнопка</button>
+    <button id="myButton" class="btn">Нажми</button>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    // плавное появление страницы
+    window.onload = () => {
+      document.body.style.opacity = 1;
+    };
+
+    // Переход на следующую страницу при клике на правую кнопку
+    document.getElementById("myButton").addEventListener("click", () => {
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = 'nextpage.html';
+      }, 300);
+    });
+
+    // Переход на другую страницу при клике на левую кнопку
+    document.getElementById("btnLeft").addEventListener("click", () => {
+      document.body.style.opacity = 0;
+      setTimeout(() => {
+        window.location.href = 'anotherpage.html';
+      }, 300);
+    });
+  </script>
 </body>
 </html>
